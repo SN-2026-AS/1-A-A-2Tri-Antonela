@@ -20,8 +20,8 @@ from supabase import create_client
 
 # ── Credenciais Supabase ──────────────────────────────────────────────────────
 
-SUPABASE_URL = os.environ.get("https://uemxrjlaeqkhoeinsgrd.supabase.co", "").strip()
-SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXhyamxhZXFraG9laW5zZ3JkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA4ODUzODcsImV4cCI6MjA5NjQ2MTM4N30.J6HDwU6clEKDmlm1c_z0dTXcoKiOVonjJs-vXaWFaKQ", "").strip()
+SUPABASE_URL = os.environ.get("SUPABASE_URL").strip()
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY").strip()
 
 if not SUPABASE_URL or not SUPABASE_KEY:
     print("[ERRO] SUPABASE_URL e SUPABASE_SERVICE_KEY sao obrigatorios.")
