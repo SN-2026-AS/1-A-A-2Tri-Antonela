@@ -20,8 +20,8 @@ from supabase import create_client
 
 # ── Credenciais Supabase ──────────────────────────────────────────────────────
 
-SUPABASE_URL = os.environ.get("https://zvkatshznvowcbaxnggd.supabase.co", "").strip()
-SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp2a2F0c2h6bnZvd2NiYXhuZ2dkIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTA3NDUwNCwiZXhwIjoyMDk0NjUwNTA0fQ.vcj27hmY7CrQtcOb2TK_IyQ_97l6V-xIy3xDDG7yASs", "").strip()
+SUPABASE_URL = os.environ.get("https://uemxrjlaeqkhoeinsgrd.supabase.co", "").strip()
+SUPABASE_KEY = os.environ.get("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlbXhyamxhZXFraG9laW5zZ3JkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA4ODUzODcsImV4cCI6MjA5NjQ2MTM4N30.J6HDwU6clEKDmlm1c_z0dTXcoKiOVonjJs-vXaWFaKQ", "").strip()
 
 if not SUPABASE_URL or not SUPABASE_KEY:
     print("[ERRO] SUPABASE_URL e SUPABASE_SERVICE_KEY sao obrigatorios.")
