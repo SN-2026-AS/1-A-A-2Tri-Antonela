@@ -440,23 +440,39 @@
 
     /* ── Selects cascata ─────────────────────────────────────────────── */
     async function loadAirports() {
-      try {
-        const r = await fetch('data/airports.json');
-        airports = await r.json();
-        const states = [...new Set(airports.map(a => a.state))].sort();
-        const sel = document.getElementById('sel-state');
-        sel.innerHTML = '<option value="">Todos os estados</option>';
-        states.forEach(s => {
-          const o = document.createElement('option');
-          o.value = o.textContent = s; sel.appendChild(o);
-        });
-        document.getElementById('meta-bar').textContent =
-          `${airports.length} aeroportos disponíveis · Dados via Supabase`;
-      } catch(e) {
-        document.getElementById('meta-bar').textContent = 'Erro ao carregar aeroportos: ' + e.message;
-      }
-      document.getElementById('sel-date').value = todayIso();
-    }
+  try {
+    airports = await sbFetch(
+      'aeroportos?select=icao,nome,cidade,estado&order=estado,cidade'
+    );
+
+    airports = airports.map(a => ({
+      icao: a.icao,
+      name: a.nome,
+      city: a.cidade,
+      state: a.estado
+    }));
+
+    const states = [...new Set(airports.map(a => a.state))].sort();
+
+    const sel = document.getElementById('sel-state');
+    sel.innerHTML = '<option value="">Todos os estados</option>';
+
+    states.forEach(s => {
+      const o = document.createElement('option');
+      o.value = o.textContent = s;
+      sel.appendChild(o);
+    });
+
+    document.getElementById('meta-bar').textContent =
+      `${airports.length} aeroportos disponíveis · Dados via Supabase`;
+
+  } catch (e) {
+    document.getElementById('meta-bar').textContent =
+      'Erro ao carregar aeroportos: ' + e.message;
+  }
+
+  document.getElementById('sel-date').value = todayIso();
+}
 
     function onStateChange() {
       const state = document.getElementById('sel-state').value;
