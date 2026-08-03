@@ -1,0 +1,2 @@
+{ "buildCommand": "bash build.sh", "outputDirectory": ".", "installCommand": "echo
+ok" }
